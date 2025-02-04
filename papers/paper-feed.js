@@ -6,11 +6,14 @@ async function fetchPaperMetadata(doi) {
         const title = data.message.title ? data.message.title[0] : "No title available";
         let abstract = data.message.abstract ? data.message.abstract : "No abstract available.";
         abstract = abstract.length > 200 ? abstract.substring(0, 200) + "..." : abstract;
+        let authors = data.message.author ? data.message.author.map(a => `${a.given} ${a.family}`).join(", ") : "Unknown authors";
+        authors = authors.length > 200 ? authors.substring(0, 200) + "..." : authors;
+        const publicationDate = data.message.published ? data.message.published["date-parts"][0].join("-") : "Unknown date";
         
-        return { title, abstract, doi };
+        return { title, abstract, authors, publicationDate, doi };
     } catch (error) {
         console.error("Error fetching data:", error);
-        return { title: "", abstract: "", doi };
+        return { title: "", abstract: "", authors: "", publicationDate: "", doi };
     }
 }
 
@@ -49,6 +52,8 @@ async function displayPaperList(dois, containerId) {
         const paperDiv = document.createElement("div");
         paperDiv.innerHTML = `
             <h2>${paper.title}</h2>
+            <p><strong>Authors:</strong> ${paper.authors}</p>
+            <p><strong>Publication Date:</strong> ${paper.publicationDate}</p>
             <p>${paper.abstract}</p>
             <a href="https://doi.org/${paper.doi}" target="_blank">Read More</a>
             <hr>
