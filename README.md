@@ -8,5 +8,3 @@ This is the code for the ICU-Heart website which can be found at [https://icu-he
 > html5up.net | @ajlkn
 > Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
->[!IMPORTANT]
-> 🚧 This website is a work in progress. You can find the current website at [https://icuheart.org/](https://icuheart.org/)
