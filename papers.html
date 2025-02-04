@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Our vision</title>
+		<link rel="icon" type="image/png" href="images/favicon.png">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Placeholder for the header -->
+				<div id="header-placeholder"></div>
+
+				<!-- JavaScript to load the header -->
+				<script>
+					fetch('header.html')
+					.then(response => response.text())
+					.then(data => {
+						document.getElementById('header-placeholder').innerHTML = data;
+					})
+					.catch(error => console.error('Error loading header:', error));
+				</script>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+                                <section id="icu">
+                                    <h1>ICU Papers</h1>
+                                    <script src="papers/paper-feed.js"></script>
+                                </section>
+                                <section id="covid">
+                                    <h1>COVID-19 Papers</h1>
+
+                                </section>
+                            </section>
+					</div>
+
+				<!-- Placeholder for the footer -->
+				<div id="footer-placeholder"></div>
+
+				<!-- JavaScript to load the footer -->
+				<script>
+					fetch('footer.html')
+					.then(response => response.text())
+					.then(data => {
+						document.getElementById('footer-placeholder').innerHTML = data;
+					})
+					.catch(error => console.error('Error loading footer:', error));
+				</script>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
