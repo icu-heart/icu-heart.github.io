@@ -36,17 +36,26 @@
 						<h1>Our current work</h1>
 					</header>
 
-				<!-- Main -->
+				<!-- Main content -->
 					<div id="main">
 						<!-- Content -->
-							<section id="content" class="main">
-								<span class="image main"><img src="images/usher.png" alt="Usher Building" /></span>
+						<section id="content" class="main">
+							<span class="image main"><img src="images/usher.png" alt="Usher Building" /></span>
+							
+							<!-- Myocardial infarction section -->
+							<section id="myocardial-infarction">
+								<h2>Detecting myocardial infarction</h2>
 								<p>When high-risk patients are admitted into ICU, they have a 1 in 4 chance of having a heart attack 
 									during their admission. Yet 95% of these heart attacks are missed — partly because critically ill 
 									patients do not have symptoms typical of heart attacks, and partly because diagnostic tests are 
 									only done intermittently, typically daily. For the first time using continuous ICU monitoring, 
 									our aim is to identify heart attacks systematically.
 								</p>
+							</section>
+							
+							<!-- Clinical phenotypes section -->
+							<section id="clinical-phenotypes">
+								<h2>Clinical phenotypes</h2>
 								<p>
 									Most adults who are admitted to ICU have at least one if not more chronic conditions, 
 									yet historically researchers have failed to take this into account when designing trials. 
@@ -57,6 +66,11 @@
 									causal inference techniques that will help us explore whether the outcome is caused by the exposure, 
 									or if an apparent association is caused by a different exposure.
 								</p>
+							</section>
+							
+							<!-- Trust in AI section -->
+							<section id="trust-in-ai">
+								<h2>Trust in AI</h2>
 								<p>
 									This information will help us to develop, deliver and evaluate tools to predict heart attacks 
 									before they happen, through using datasets of patients admitted to ICUs in Scotland, and test 
@@ -66,7 +80,8 @@
 								</p>
 							</section>
 
-					</div>
+						</section> <!-- End of #content section -->
+					</div> <!-- End of #main -->
 
 				<!-- Placeholder for the footer -->
 				<div id="footer-placeholder"></div>
@@ -81,7 +96,7 @@
 					.catch(error => console.error('Error loading footer:', error));
 				</script>
 
-			</div>
+			</div> <!-- End of #wrapper -->
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
