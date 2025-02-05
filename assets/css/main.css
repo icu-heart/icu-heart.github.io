@@ -3943,39 +3943,55 @@ input, select, textarea {
 
 		}
 
-		.features li {
-			position: relative;
-			display: inline-block; /* Ensure they are inline */
-			margin: 10px; /* Space between items */
-		}
-		
-		.tooltip {
-			visibility: hidden;
-			position: absolute;
-			background-color: #555;
-			color: #fff;
-			text-align: center;
-			border-radius: 5px;
-			padding: 5px;
-			width: 200px;
-			bottom: -20px; /* Position it below the icon */
-			left: 50%;
-			transform: translateX(-50%);
-			opacity: 0; /* Start invisible */
-			transition: opacity 0.3s;
-			font-size: 14px;
-		}
-		
-		.features li:hover .tooltip {
-			visibility: visible;
-			opacity: 1; /* Fade-in effect */
-		}
-		
-		.features li:hover .icon {
-			color: #000000; /* Change icon color on hover */
-		}
+/* Tooltip on main page */
 
-		.features a {
-			outline: none;
-			border-bottom: none;
-		}
+.features li {
+	position: relative;
+	display: inline-block; /* Ensure they are inline */
+	margin: 10px; /* Space between items */
+}
+
+.tooltip {
+	visibility: hidden;
+	position: absolute;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	padding: 5px;
+	width: 200px;
+	bottom: -20px; /* Position it below the icon */
+	left: 50%;
+	transform: translateX(-50%);
+	opacity: 0; /* Start invisible */
+	transition: opacity 0.3s;
+	font-size: 14px;
+}
+
+.features li:hover .tooltip {
+	visibility: visible;
+	opacity: 1; /* Fade-in effect */
+}
+
+.features li:hover .icon {
+	color: #000000; /* Change icon color on hover */
+}
+
+.features a {
+	outline: none;
+	border-bottom: none;
+}
+
+/* Papers formatting */
+
+#papers h2 {
+	font-weight: bold;
+}
+
+#papers a{
+	color: #ff0000; 
+}
+
+#papers a:hover {
+	color: #ff000054;
+}
