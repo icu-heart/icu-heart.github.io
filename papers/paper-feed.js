@@ -55,7 +55,7 @@ async function displayPaperList(dois, containerId) {
             <p><strong>Authors:</strong> ${paper.authors}</p>
             <p><strong>Publication Date:</strong> ${paper.publicationDate}</p>
             <p>${paper.abstract}</p>
-            <a href="https://doi.org/${paper.doi}" target="_blank">Read More</a>
+            <a href="https://doi.org/${paper.doi}" target="_blank">Go to publication</a>
             <hr>
         `;
         container.appendChild(paperDiv);
