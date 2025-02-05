@@ -3,12 +3,12 @@ async function fetchPaperMetadata(doi) {
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
-        const title = data.message.title ? data.message.title[0] : "No title available";
-        let abstract = data.message.abstract ? data.message.abstract : "No abstract available.";
-        abstract = abstract.length > 200 ? abstract.substring(0, 200) + "..." : abstract;
-        let authors = data.message.author ? data.message.author.map(a => `${a.given} ${a.family}`).join(", ") : "Unknown authors";
-        authors = authors.length > 200 ? authors.substring(0, 200) + "..." : authors;
-        const publicationDate = data.message.published ? data.message.published["date-parts"][0].join("-") : "Unknown date";
+        const title = data.message.title ? data.message.title[0] : "";
+        let abstract = data.message.abstract ? data.message.abstract : "";
+        abstract = abstract.length > 1000 ? abstract.substring(0, 1000) + "..." : abstract;
+        let authors = data.message.author ? data.message.author.map(a => `${a.given} ${a.family}`).join(", ") : "";
+        authors = authors.length > 300 ? authors.substring(0, 300) + "..." : authors;
+        const publicationDate = data.message.published ? data.message.published["date-parts"][0].join("-") : "";
         
         return { title, abstract, authors, publicationDate, doi };
     } catch (error) {
