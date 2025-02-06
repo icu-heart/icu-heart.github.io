@@ -1,109 +1,113 @@
 $(function () {
     var $content = $('#jsonContent');
-    var mediumName = "icu-heart";
-    var apiKey = "<YOUR api.rss2json.com API KEY>"
-    var data = {  
-        rss_url: 'https://medium.com/feed/'+mediumName,
-    };
-    
-    $.ajax({
-        url: 'https://api.rss2json.com/v1/api.json',
-        method: 'GET',
-        dataType: 'json',
-        data: data
-    }).done(function (response) {
-        if (response.status == 'ok') {
-            var output = '';
+    var mediumNames = ["icu-heart", "critical-care-futures"];
+    var apiKey = "<YOUR api.rss2json.com API KEY>";
+    var allArticles = [];
 
-            var authorImage = response.feed.image;
-            var pathArray = authorImage.split("/");
-            var imageId = pathArray[pathArray.length-1];
+    // Fetch RSS feed from Medium for a given blog
+    function fetchFeed(mediumName) {
+        return $.ajax({
+            url: 'https://api.rss2json.com/v1/api.json',
+            method: 'GET',
+            dataType: 'json',
+            data: { rss_url: 'https://medium.com/feed/' + mediumName }
+        });
+    }
 
-            console.log(imageId);
-            $.each(response.items, function (k, item) {
-                var visibleSm;
-                var author = "https://medium.com/@" + mediumName;
-                var tagIndex = item.description.indexOf('<img'); // Find where the img tag starts
-                var srcIndex = item.description.substring(tagIndex).indexOf('src=') + tagIndex; // Find where the src attribute starts
-                var srcStart = srcIndex + 5; // Find where the actual image URL starts; 5 for the length of 'src="'
-                var srcEnd = item.description.substring(srcStart).indexOf('"') + srcStart; // Find where the URL ends
-                var src = item.description.substring(srcStart, srcEnd); // Extract just the URL
-                var profileImage = "https://miro.medium.com/fit/c/80/80/" + imageId;
+    // Fetch both blog feeds simultaneously
+    var requests = mediumNames.map(fetchFeed);
 
-                if (src.match(/https?:\/\/(medium\.com\/_\/.+)/g)) {
-                    console.log("Ignore comments");
-                } else {
-                    var time = item.pubDate;
-                    time = time.replace(/\s/, 'T') + 'Z';
-                    console.log(time);
-                    var formattedDate = new Date(time);
-                    var day = formattedDate.getDate();
-                    console.log(formattedDate.toLocaleDateString());
-                    console.log(day);
-                    var month = formattedDate.getMonth();
-                    var month_str = "Jan";
-                    month += 1;  // JavaScript months are 0-11
-                    if(month==1){ month_str = "Jan"; }
-                    if(month==2){ month_str = "Feb"; }
-                    if(month==3){ month_str = "Mar"; }
-                    if(month==4){ month_str = "Apr"; }
-                    if(month==5){ month_str = "May"; }
-                    if(month==6){ month_str = "Jun"; }
-                    if(month==7){ month_str = "Jul"; }
-                    if(month==8){ month_str = "Aug"; }
-                    if(month==9){ month_str = "Sep"; }
-                    if(month==10){ month_str = "Oct"; }
-                    if(month==11){ month_str = "Nov"; }
-                    if(month==12){ month_str = "Dec"; }
+    $.when.apply($, requests).done(function (...responses) {
+        responses.forEach(function (responseWrapper, index) {
+            var responseData = responseWrapper[0]; 
+            if (responseData.status == 'ok') {
+                responseData.items.forEach(function (item) {
+                    item.source = mediumNames[index]; 
+                    allArticles.push(item);
+                });
+            }
+        });
 
-                    var year = formattedDate.getFullYear();
-                    var yourString = item.description.replace(/<img[^>]*>/g, ""); //replace with your string.
-                    var maxLength = 1250; // maximum number of characters to extract
-                    var trimmedString = yourString.substr(0, maxLength);
-                    trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")));
-                    output += '<div class="row">' +
-                        '<div class="col-12 col-centered" style="margin: auto;">' +
-                        '<div class="mainbox">' +
-                        '<div>' +
-                        '<div class="profile_img">' +
-                        '<div class="u">' +
-                        '<div class="dm">' +
-                        '<div class="dn">' +
-                        '<div>';
-                    output += '<img alt="' + item.author + '" style="border-radius: 50%;display: block; height: 40px; width: 40px;" src=' + profileImage + ' class="dp" width="40" height="40">';
-                    output += '</div>';
-                    output += '<div class="dr">';
-                    output += '<a href="' + author + '" target="_blank"> <span class="bx">' + item.author + '</span></a>';
-                    output += '<span class="af">' + month_str + " " + day + '</span>';
-                    output += '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>';
-                    output +=
-                    '<div class="dsbox">' +
-                    '<div class="dubox">' +
-                    '<div class="dvbox">';
-                    output += '<a href="' + item.link + '" target="_blank"><img alt="" src="' + src + '" class="bhbox" width="720" height="210"></a>';
-                    output += '</div>' +
-                    '</div>';
-                    output += '<a href="' + item.link + '" target="_blank"><h3 class="eafont">';
-                    output += item.title;
-                    output += '</h3></a>';
-                    output += '<div class="blog-cont">';
-                    output += '<p>' + trimmedString + '...</p>';
-                    output += '<p><a href="' + item.link + '" target="_blank"> Continue reading...</a></p>';
-                    output += '</div>';
-                    output += '</div>';
-                    output += '</div>';
-                    output += '</div>';
-                    output += '</div>';
-                    return true;
-                }
-            });
+        // Sort articles by publication date 
+        allArticles.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
-            $content.html(output);
-        }
+        // Empty HTML structure to fill by appending each blog
+        var output = '';
+
+        // Loop through all articles in time order
+        allArticles.forEach(function (item) {
+            // NB here "author" is really the feed e.g. "ICU Heart"
+            var author = "https://medium.com/" + item.source; 
+            
+            // Extract image (if any) from the description field
+            var tagIndex = item.description.indexOf('<img'); 
+            var srcIndex = item.description.substring(tagIndex).indexOf('src=') + tagIndex; 
+            var srcStart = srcIndex + 5; 
+            var srcEnd = item.description.substring(srcStart).indexOf('"') + srcStart; 
+            var src = item.description.substring(srcStart, srcEnd);
+
+            // Add different circular image depending on whether it's an ICU-H
+            // or a CCF blog post
+            var profileImage = "";
+            if (item.source === "icu-heart") {
+                profileImage = "images/favicon.png"; 
+            } else if (item.source === "critical-care-futures") {
+                profileImage = "images/ccf.png"; 
+            }
+
+            if (!src.match(/https?:\/\/(medium\.com\/_\/.+)/g)) {
+                var time = item.pubDate;
+                time = time.replace(/\s/, 'T') + 'Z';
+                var formattedDate = new Date(time);
+                var day = formattedDate.getDate();
+                var month = formattedDate.getMonth() + 1;
+                var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                var month_str = months[month - 1];
+
+                var trimmedString = item.description.replace(/<img[^>]*>/g, "").substr(0, 250);
+                trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")));
+
+                // Append HTML for blog post
+                output += `
+                    <div class="row">
+                        <div class="col-12 col-centered" style="margin: auto;">
+                            <div class="mainbox">
+                                <div>
+                                    <div class="profile_img">
+                                        <div class="u">
+                                            <div class="dm">
+                                                <div class="dn">
+                                                    <div>
+                                                        <img alt="${item.author}" style="border-radius: 50%; height: 40px; width: 40px;" src="${profileImage}" class="dp">
+                                                    </div>
+                                                    <div class="dr">
+                                                        <a href="${author}" target="_blank"> <span class="bx">${item.author}</span></a>
+                                                        <span class="af">${month_str} ${day}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dsbox">
+                                        <div class="dubox">
+                                            <div class="dvbox">
+                                                <a href="${item.link}" target="_blank"><img src="${src}" class="bhbox" width="720" height="210"></a>
+                                            </div>
+                                        </div>
+                                        <a href="${item.link}" target="_blank"><h3 class="eafont">${item.title}</h3></a>
+                                        <div class="blog-cont">
+                                            <p>${trimmedString}...</p>
+                                            <p><a href="${item.link}" target="_blank"> Continue reading...</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+        });
+
+        // Display the articles in the content area
+        $content.html(output);
     });
 });

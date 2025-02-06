@@ -48,10 +48,10 @@
 }
 
 
-/* img, svg {
+img, svg {
     vertical-align: middle;
-  } */
-
+  } 
+  
 .bx {
 	fill: rgba(0, 0, 0, 0.84);
 	color: rgba(0, 0, 0, 0.84);
@@ -74,7 +74,7 @@
 	font-style: normal;
 	font-family: medium-content-sans-serif-font, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 	font-weight: 400;
-}
+} 
 
 .dsbox {
 	margin-top: 38px;
@@ -99,6 +99,7 @@
 	/* position: absolute; */
 	width: 100%;
 }
+
 
 .eafont {
 	margin-bottom: -0.28em;
@@ -139,6 +140,7 @@ a:visited {
 	text-decoration: none;
 }
 
+
 img {
 	vertical-align: bottom;
 	max-width: 100%;
@@ -152,8 +154,39 @@ img {
 	height: auto;
 }
 
+/* the formatting for this page override the general settings, manually 
+set header + footer styling to match rest of site */ 
+
 #topnav a {
 	color: #636363;
 	font-family: "Source Sans Pro", Helvetica, sans-serif;
 	font-weight: 300;
 }
+
+#footer a {
+  color: rgba(255, 255, 255, 0.65);
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 12pt;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+#footer a:hover {
+  color: #ffffff;
+  border-bottom-color: transparent;
+  text-decoration: none;
+}
+
+#footer h2 {
+  font-size: 24px;
+  font-weight: 300;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+}
+
+#footer p {
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 12.8px;
+  color: rgba(255, 255, 255, 0.65);
+  font-style: normal;
+}
+
