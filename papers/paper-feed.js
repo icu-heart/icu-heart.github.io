@@ -9,7 +9,7 @@ async function fetchPaperMetadata(doi) {
         let authors = data.message.author ? data.message.author.map(a => `${a.given} ${a.family}`).join(", ") : "";
         authors = authors.length > 300 ? authors.substring(0, 300) + "..." : authors;
         const publicationDate = data.message.published ? data.message.published["date-parts"][0].join("-") : "";
-        
+
         return { title, abstract, authors, publicationDate, doi };
     } catch (error) {
         console.error("Error fetching data:", error);
@@ -21,6 +21,7 @@ async function displayPapers() {
     const icuDois = [
         "10.1111/anae.16599",
         "10.1001/jama.2018.17121",
+        "10.1056/NEJMoa2404360",
         "10.1111/anae.16314",
         "10.1164/rccm.202401-0101CP",
         "10.1111/1467-9566.13708",
@@ -62,14 +63,14 @@ async function displayPapers() {
         "10.1136/bmj.m3249",
         "10.1136/bmj.m1985"
     ];
-    
+
     await displayPaperList(icuDois, "icu");
     await displayPaperList(covidDois, "covid");
 }
 
 async function displayPaperList(dois, containerId) {
     const container = document.getElementById(containerId);
-    
+
     for (const doi of dois) {
         const paper = await fetchPaperMetadata(doi);
         const paperDiv = document.createElement("div");
