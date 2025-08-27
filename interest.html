@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Interest - ICU Heart</title>
+    <!-- Inline CSS for standalone styling -->
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f7f7;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            width: 100vw;
+        }
+        .left {
+            flex: 0 0 60%;
+            background: #fff;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            border-right: 1px solid #e0e0e0;
+            min-width: 0;
+            height: 100vh;
+            position: relative;
+        }
+        .right {
+            flex: 0 0 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f4f8fb;
+            padding: 0;
+            margin: 0;
+        }
+        .header {
+            position: sticky;
+            top: 0;
+            background: #f7f7f7;
+            z-index: 10;
+            width: 100%;
+            padding: 20px 40px 20px 40px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .header a {
+            text-decoration: none;
+            color: #0078d4;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .body-text {
+            font-size: 1.1em;
+            color: #222;
+            line-height: 1.7;
+            padding: 32px 40px 48px 40px;
+            overflow-y: auto;
+            flex: 1 1 auto;
+            min-height: 0;
+        }
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+            .left, .right {
+                flex: none;
+                width: 100vw;
+                min-height: 50vh;
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+            .right {
+                border-bottom: none;
+            }
+            .header {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .body-text {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="header">
+                <a href="https://icu-heart.github.io/">&larr; Back to ICU Heart Home</a>
+            </div>
+            <div class="body-text">
+                <h1>Inpatient Waveform Data</h1>
+                <p>
+                    This brief describes a new waveform data source being developed within <strong>DataLoch</strong>, the data service that sits between NHS Lothian and the University of Edinburgh (<a href="https://dataloch.org/about-us/faqs" target="_blank" rel="noopener">https://dataloch.org/about-us/faqs</a>).
+                </p>
+                <h2 style="margin-top:2em; font-size:1.15em;">The Data</h2>
+                <p>
+                    The waveform data is being collected in real time from patient bedside monitors in the Royal Infirmary of Edinburgh. This data is comprised of high-resolution signals including multi-channel ECG, invasive blood pressure, pulse plethysmography and more, with these waveforms sampled at up to 250Hz.
+                </p>
+                <p>
+                    Currently the data is being collected across all critical care and cardiology beds with the potential of expanding this to cover other clinical areas such as theatres, the acute medical unit, and parts of the emergency department, including resus. The volumes of data being collected are vast with the nearly 80 beds across critical care and cardiology streaming on average 7 signals of continuous waveform data. This yields approximately 300,000 hours of waveform data per month, or expressed in heartbeats 2.5B per year.
+                </p>
+                <p>
+                    We believe this is the first project in the UK that is collecting routine waveform data at a large scale for research purposes. We are very excited about the potential for this data to answer clinical questions, with this type of data being ideal for the application of machine or deep learning approaches.
+                </p>
+                <h2 style="margin-top:2em; font-size:1.15em;">The Progress</h2>
+                <p>
+                    We are currently archiving this waveform data whilst we develop a robust pipeline to process and store it for long term use, with plans to deploy this pipeline by the end of the year. This long-term data will then be query-able for specific patients or cohorts, where it can then be linked to other DataLoch patient datasets such as demographics, diagnoses, medications or laboratory results. This data can then be provided to researchers as a pseudonymised dataset in a sandboxed environment, where it could be used to tackle a vast array of different problems or questions.
+                </p>
+                <h2 style="margin-top:2em; font-size:1.15em;">The Question</h2>
+                <p>
+                    The volumes of data being processed and stored require significant resources in terms of software development, hardware and storage. Understanding the value and interest in this data is important in justifying the allocation of resources to supporting the dataset. As such we would be extremely grateful if you could take 1 minute to quickly complete the following very brief Microsoft Form!
+                </p>
+                <p>
+                    Your responses are an informal expression of interest and are not considered any form of commitment. They can be made anonymously if you prefer.
+                </p>
+            </div>
+        </div>
+        <div class="right">
+            <iframe width="500px" height="720px" src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=sAafLmkWiUWHiRCgaTTcYbiH6vdq1E1FkU8v-3Db5sxUQTY0RzUwTUc4MEc2Rko2SUpETTNNSjNHSi4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh; padding:0; margin:0;" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+        </div>
+    </div>
+</body>
+</html>
