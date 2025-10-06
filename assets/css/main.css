@@ -3074,8 +3074,11 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		padding: 5em 5em 1em 5em ;
+		padding: 10em 1em 1em 1em ; /* top right bottom left */
 		text-align: center;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 		#header h1 {
