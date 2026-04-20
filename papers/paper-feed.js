@@ -87,3 +87,48 @@ async function displayPaperList(dois, containerId) {
 }
 
 window.onload = displayPapers;
+
+// Poster slideshow
+
+// Put newest first
+// Poster slideshow
+const poster_jpgs = [
+    "causal_poster_image.jpg",
+    "showcase_poster_image.jpg"
+  ];
+
+const slideshowContainer = document.querySelector('.slideshow-container');
+const prevButton = document.querySelector('.prev-btn');
+const nextButton = document.querySelector('.next-btn');
+
+let currentSlide = 0;
+
+const imageSources = poster_jpgs.map(fileName => `images/posters/${fileName}`);
+
+imageSources.forEach((src, index) => {
+const slide = document.createElement('div');
+slide.classList.add('slide');
+slide.style.display = index === 0 ? 'block' : 'none';
+const img = document.createElement('img');
+img.src = src;
+img.alt = `Poster ${index + 1}`;
+slide.appendChild(img);
+slideshowContainer.appendChild(slide);
+});
+
+prevButton.addEventListener('click', () => {
+currentSlide = (currentSlide - 1 + imageSources.length) % imageSources.length;
+updateSlide();
+});
+
+nextButton.addEventListener('click', () => {
+currentSlide = (currentSlide + 1) % imageSources.length;
+updateSlide();
+});
+
+function updateSlide() {
+const slides = document.querySelectorAll('.slide');
+slides.forEach((slide, index) => {
+    slide.style.display = index === currentSlide ? 'block' : 'none';
+});
+}
