@@ -36,26 +36,27 @@
 						<h1>Our current work</h1>
 					</header>
 
+				<!-- Nav -->
+					<br> <!--need this to stop overlapping-->
+					<nav id="nav">
+						<ul>
+							<li><a href="#project">Project</a></li>
+							<li><a href="#infrastructure" class="active">Infrastructure</a></li>
+						</ul>
+					</nav>
+
 				<!-- Main content -->
 					<div id="main">
 						<!-- Content -->
 						<section id="content" class="main">
 							<span class="image main"><img src="images/usher.png" alt="Usher Building" /></span>
-							
-							<!-- Myocardial infarction section -->
-							<section id="myocardial-infarction">
-								<h2>Detecting myocardial infarction</h2>
-								<p>When high-risk patients are admitted into ICU, they have a 1 in 4 chance of having a heart attack 
-									during their admission. Yet 95% of these heart attacks are missed — partly because critically ill 
-									patients do not have symptoms typical of heart attacks, and partly because diagnostic tests are 
-									only done intermittently, typically daily. For the first time using continuous ICU monitoring, 
-									our aim is to identify heart attacks systematically.
-								</p>
-							</section>
-							
-							<!-- Clinical phenotypes section -->
+							<section id="project">
+								<h1>Project</h1>
+
+							<!-- WP0 -->
 							<section id="clinical-phenotypes">
-								<h2>Clinical phenotypes</h2>
+								<h2><a href="https://github.com/icu-heart/publication-extras/blob/main/statistical_analysis_plans/WP0.md" class="icon solid fa-link"></a> 
+									Clinical phenotypes</h2>
 								<p>
 									Most adults who are admitted to ICU have at least one if not more chronic conditions, 
 									yet historically researchers have failed to take this into account when designing trials. 
@@ -67,6 +68,52 @@
 									or if an apparent association is caused by a different exposure.
 								</p>
 							</section>
+							<!-- WP1 -->
+							<section id="risk-prediction">
+								<h2><a href="https://github.com/icu-heart/publication-extras/blob/main/statistical_analysis_plans/WP1.md" class="icon solid fa-link"></a> 
+									Risk prediction</h2>
+								<p>
+									
+								</p>
+							</section>
+							<!-- WP2 -->
+							<section id="myocardial-infarction">
+								<h2><a href="https://github.com/icu-heart/publication-extras/blob/main/statistical_analysis_plans/WP2.md" class="icon solid fa-link"></a>
+									 Detecting myocardial infarction</h2>
+								<p>When high-risk patients are admitted into ICU, they have a 1 in 4 chance of having a heart attack 
+									during their admission. Yet 95% of these heart attacks are missed — partly because critically ill 
+									patients do not have symptoms typical of heart attacks, and partly because diagnostic tests are 
+									only done intermittently, typically daily. For the first time using continuous ICU monitoring, 
+									our aim is to identify heart attacks systematically.
+								</p>
+							</section>
+							<!-- WP3 -->
+							<section id="haemodynamic-instability">
+								<h2><a href="https://github.com/icu-heart/publication-extras/blob/main/statistical_analysis_plans/WP3.md" class="icon solid fa-link"></a> 
+									Haemodynamic instability</h2>
+								<p>Risk prediction
+								</p>
+							</section>
+							<!-- WP4 -->
+							<section id="target-trial">
+								<h2><a href="https://github.com/icu-heart/publication-extras/blob/main/statistical_analysis_plans/WP4.md" class="icon solid fa-link"></a> 
+									Target trial emulation</h2>
+								<p>
+									Critically ill patients often become anaemic, increasing the likelihood of adverse outcomes such as 
+									myocardial infarction or death. This can be managed by giving blood transfusions, though these also carry 
+									risks. While randomised trials have shown no benefit to liberal transfusion strategies compared to more 
+									restrictive ones, these were in general critical care populations. The balance of risks may differ 
+									among patients with cardiovascular disease, however trial evidence in this patient group is limited. 
+									<br><br>
+									We are using novel methods aimed at gaining causal insights from observational data to compare the effect 
+									of different transfusion strategies on mortality among critically ill patients with cardiovascular disease.
+									While these methods are increasingly popular, it is important to disentangle hyperbole from genuine 
+									benefit. In addition, Stella is building on her prior training in philosophy as well as data science, 
+									to conduct a critical ethical analysis of the ways that causal methodology are “sold” 
+									in academic literature. These strands of work are interrelated, with ethical and technical analyses 
+									informing one another.
+								</p>
+							</section>							
 							
 							<!-- Trust in AI section -->
 							<section id="trust-in-ai">
@@ -80,7 +127,11 @@
 								</p>
 							</section>
 
-						</section> <!-- End of #content section -->
+						</section> <!-- End of #project section -->
+					<section id="infrastructure">
+						<h1>Infrastructure</h1>
+					</section>
+					</section> <!-- End of #content-->
 					</div> <!-- End of #main -->
 
 				<!-- Placeholder for the footer -->
