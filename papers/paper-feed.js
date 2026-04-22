@@ -19,9 +19,11 @@ async function fetchPaperMetadata(doi) {
 
 async function displayPapers() {
     const icuDois = [
+		"10.1177/01622439261428766",
         "10.1111/anae.70187",
+		"10.1177/17511437261415835",
         "10.1016/j.bja.2025.07.007",
-        "10.1111/anae.16599",
+		"10.1111/anae.16599",
         "10.1056/NEJMoa2404360",
         "10.1111/anae.16314",
         "10.1164/rccm.202401-0101CP",
