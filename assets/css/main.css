@@ -2212,6 +2212,8 @@ input, select, textarea {
 
 /* Icon */
 
+  
+
 	.icon {
 		text-decoration: none;
 		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -2370,14 +2372,21 @@ input, select, textarea {
 			border-radius: 8px;
 			display: block;
 		}
-
+		.image.usher {
+			width: 50vw;
+			height: 15vw;
+			float: left;
+			margin: 0 1.5em 1em 0;
+			top: 0.25em;
+		}
+		
 		.image.left, .image.right {
 			/* used to be 40% */
 			width: 15vw;
 			height: 15vw;
 		}
 
-			.image.left img, .image.right img {
+			.image.left img, .image.right img, .image.usher img {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
@@ -3998,3 +4007,41 @@ input, select, textarea {
 #papers a:hover {
 	color: #ff000054;
 }
+
+.slideshow-container {
+	max-width: 80%;
+	margin: 0 auto;
+	position: relative;
+  }
+  
+.slide img {
+width: 100%;
+display: block;
+}
+  
+.prev-btn, .next-btn {
+position: relative;
+top: 50%;
+transform: translateX(150%);
+background-color: #ddd;
+border: none;
+padding: 1px;
+cursor: pointer;
+width: 20%; 
+font-size: 0.8em; 
+}
+  
+.prev-btn {
+left: 0;
+}
+
+.next-btn {
+right: 0;
+}
+
+.prev-btn:hover, .next-btn:hover {
+background-color: #fff;
+}
+
+
+  

@@ -36,26 +36,26 @@
 						<h1>Our current work</h1>
 					</header>
 
+				<!-- Nav -->
+					<br> <!--need this to stop overlapping-->
+					<nav id="nav">
+						<ul>
+							<li><a href="#project">Research Projects</a></li>
+							<li><a href="#infrastructure" class="active">Infrastructure</a></li>
+						</ul>
+					</nav>
+
 				<!-- Main content -->
 					<div id="main">
 						<!-- Content -->
 						<section id="content" class="main">
-							<span class="image main"><img src="images/usher.png" alt="Usher Building" /></span>
-							
-							<!-- Myocardial infarction section -->
-							<section id="myocardial-infarction">
-								<h2>Detecting myocardial infarction</h2>
-								<p>When high-risk patients are admitted into ICU, they have a 1 in 4 chance of having a heart attack 
-									during their admission. Yet 95% of these heart attacks are missed — partly because critically ill 
-									patients do not have symptoms typical of heart attacks, and partly because diagnostic tests are 
-									only done intermittently, typically daily. For the first time using continuous ICU monitoring, 
-									our aim is to identify heart attacks systematically.
-								</p>
-							</section>
-							
-							<!-- Clinical phenotypes section -->
+							<section id="project">
+								<h1>Research Projects</h1>
+
+							<!-- WP0 -->
 							<section id="clinical-phenotypes">
-								<h2>Clinical phenotypes</h2>
+								<h2><a href="https://github.com/icu-heart/publication-extras/blob/main/statistical_analysis_plans/WP0.md" class="icon solid fa-link"></a> 
+									Clinical phenotypes</h2>
 								<p>
 									Most adults who are admitted to ICU have at least one if not more chronic conditions, 
 									yet historically researchers have failed to take this into account when designing trials. 
@@ -67,20 +67,98 @@
 									or if an apparent association is caused by a different exposure.
 								</p>
 							</section>
+							<!-- WP2 -->
+							<section id="myocardial-infarction">
+								<h2><a href="https://github.com/icu-heart/publication-extras/blob/main/statistical_analysis_plans/WP2.md" class="icon solid fa-link"></a>
+									 Detecting myocardial infarction</h2>
+								<p>When high-risk patients are admitted into ICU, they have a 1 in 4 chance of having a heart attack 
+									during their admission. Yet 95% of these heart attacks are missed — partly because critically ill 
+									patients do not have symptoms typical of heart attacks, and partly because diagnostic tests are 
+									only done intermittently, typically daily. For the first time using continuous ICU monitoring, 
+									our aim is to identify heart attacks systematically.
+								</p>
+							</section>
+							<!-- WP3 -->
+							<section id="haemodynamic-instability">
+								<h2><a href="https://github.com/icu-heart/publication-extras/blob/main/statistical_analysis_plans/WP3.md" class="icon solid fa-link"></a> 
+									Haemodynamic instability</h2>
+								<p>We are working to quantify haemodynamic instability (insufficient bloodflow in critically ill patients) 
+								in combination with other patient factors to predict routinely collected organ-specific, major adverse 
+								cardiac events, and non-organ-specific (death, critical care support, longer term healthcare trajectories) outcomes in 
+								critically unwell patients. Following on from this we will identify groups of patients that are at higher risk
+								of the above outcomes, and consider strategies to mitigate these risks.
+								</p>
+							</section>
+							<!-- WP4 -->
+							<section id="target-trial">
+								<h2><a href="https://github.com/icu-heart/publication-extras/blob/main/statistical_analysis_plans/WP4.md" class="icon solid fa-link"></a> 
+									Target trial emulation</h2>
+								<p>
+									Critically ill patients often become anaemic, increasing the likelihood of adverse outcomes such as 
+									myocardial infarction or death. This can be managed by giving blood transfusions, though these also carry 
+									risks. While randomised trials have shown no benefit to liberal transfusion strategies compared to more 
+									restrictive ones, these were in general critical care populations. The balance of risks may differ 
+									among patients with cardiovascular disease, however trial evidence in this patient group is limited. 
+									<br><br>
+									We are using novel methods aimed at gaining causal insights from observational data to compare the effect 
+									of different transfusion strategies on mortality among critically ill patients with cardiovascular disease.
+									While these methods are increasingly popular, it is important to disentangle hyperbole from genuine 
+									benefit. In addition, Stella is building on her prior training in philosophy as well as data science, 
+									to conduct a critical ethical analysis of the ways that causal methodology are “sold” 
+									in academic literature. These strands of work are interrelated, with ethical and technical analyses 
+									informing one another.
+								</p>
+							</section>							
 							
 							<!-- Trust in AI section -->
 							<section id="trust-in-ai">
-								<h2>Trust in AI</h2>
+								<h2><a href="" class="icon solid fa-link"></a>
+								Sociotechnical analysis</h2>
 								<p>
-									This information will help us to develop, deliver and evaluate tools to predict heart attacks 
-									before they happen, through using datasets of patients admitted to ICUs in Scotland, and test 
-									them in datasets of patients admitted to ICUs in England and Pittsburgh, USA. 
-									We ultimately aim to embed these algorithms within the NHS so that we can trial 
-									interventions in high-risk patients to prevent heart attacks from happening.
+									The sociotechnical analysis work aims to explore and understand the baseline work processes in critical care 
+									and the needs of ICU clinicians, as well as facilitating collaboration amongst stakeholders through 
+									understanding the different components and requirements of each stakeholder. We are involving a wide range of 
+									stakeholders to ensure valuable insights and perspectives are known and acknowledged
+									through the development process. Having multiple disciplines involved throughout will facilitate
+									relationships and build a foundation of trust amongst stakeholders.  
+								</p>
+							</section>
+							<!--TRAITS section -->
+							<section id="TRAITS">
+								<h2><a href="https://traits-trial.ed.ac.uk/" class="icon solid fa-link"></a>
+								TRAITS</h2>
+								<p>
+									TRAITS (Time-critical precision medicine for acute critical illness using treatable trait principles; PI Prof Manu Shankar-Hari) 
+									is a multicentre trial across Scottish ICUs that aims to improve outcomes for critically ill patients 
+									through a precision medicine approach. The TRAITS Data Team links national healthcare datasets with trial data
+									, repurposing routinely collected ICU data to reduce the burden of manual data entry. Its objective is to
+									validate routinely collected data against manually entered trial records, supporting future automated data
+									capture. This approach has the potential to reduce costs and workload while enabling more scalable research. 
 								</p>
 							</section>
 
-						</section> <!-- End of #content section -->
+						</section> <!-- End of #project section -->
+					<section id="infrastructure">
+						<h1>Infrastructure</h1>
+						<h2>NHS Lothian Critical Care data</h2>
+							<p> 
+						We are supporting the provision of 
+						<a href="https://dataloch.org/our-impact/news-and-perspectives/gaining-insights-our-updated-critical-care-datasets">research datasets</a> 
+						from NHS Lothian Critical Care via DataLoch (the NHS Lothian safe haven). This consists of hourly physiology data along with medications and fluids
+						from the Phillips ICCA system, as well as high frequency (about 250Hz) continuous waveform monitoring from the patient bedside (ECG, blood pressure etc.)
+						<br><br>
+						We have developed a <a href= "https://github.com/icu-heart/icu-heart-mindray-waveform-adapter">pipeline</a> 
+						for processing waveform data and storing it in a compressed AtriumDB database. 
+						</p>
+						<h2>Pandemic preparedness</h2>
+						<p> 
+						We are leading a project funded by the Scottish Pandemic Sciences Partnership entitled 'Sentinel ICUs for Severe Acute Respiratory Infection:
+						a national real-time surveillance and research platform'. We are using routinely collected, high-frequency ICU data to deliver near real-time national
+						intelligence on the burden, severity, trajectory, management and outcomes of severe acute respiratory infections, supporting public health 
+						decision-making while reducing reliance on staff-intensive enhanced surveillance.
+						</p>
+					</section>
+					</section> <!-- End of #content-->
 					</div> <!-- End of #main -->
 
 				<!-- Placeholder for the footer -->
