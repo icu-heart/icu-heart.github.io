@@ -2372,14 +2372,21 @@ input, select, textarea {
 			border-radius: 8px;
 			display: block;
 		}
-
+		.image.usher {
+			width: 50vw;
+			height: 15vw;
+			float: left;
+			margin: 0 1.5em 1em 0;
+			top: 0.25em;
+		}
+		
 		.image.left, .image.right {
 			/* used to be 40% */
 			width: 15vw;
 			height: 15vw;
 		}
 
-			.image.left img, .image.right img {
+			.image.left img, .image.right img, .image.usher img {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
