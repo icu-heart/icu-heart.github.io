@@ -15,7 +15,8 @@
         "repos",
         "shrinkwrap",
         "streetsidesoftware",
-        "sociotechnical"
+        "sociotechnical",
+        "Sinziana"
     ],
     "useGitignore": true,
     "ignorePaths": [
