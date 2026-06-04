@@ -7,7 +7,6 @@
     }
   ],
   "incorrectForms": {
-    // List of words to exempt from correction (noun patterns)
     "sociotechnical n-"
   }
 }
