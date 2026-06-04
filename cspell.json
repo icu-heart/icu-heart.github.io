@@ -1,0 +1,13 @@
+{
+  "languageGroups": [
+    {
+      "projectName": "to add",
+      "script": "en",
+      "incorrectForms": null  
+    }
+  ],
+  "incorrectForms": {
+    // List of words to exempt from correction (noun patterns)
+    "sociotechnical n-"
+  }
+}
