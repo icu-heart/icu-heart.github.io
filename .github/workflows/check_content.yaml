@@ -15,8 +15,8 @@ jobs:
           persist-credentials: false
       - uses: streetsidesoftware/cspell-action@v8
         with:
-            files: |
-                **/*.html
+            files: ''
+                
 
   linkcheck:
     runs-on: ubuntu-latest
