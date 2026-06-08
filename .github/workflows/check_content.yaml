@@ -16,6 +16,7 @@ jobs:
       - uses: streetsidesoftware/cspell-action@v8
         with:
             files: ''
+            root: '.'
                 
 
   linkcheck:
