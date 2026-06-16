@@ -98,8 +98,9 @@ window.onload = displayPapers;
 // Poster slideshow
 const poster_jpgs = [
 	"usher_symposium_2026_poster.jpg",
-    "causal_poster_image.jpg",
-    "showcase_poster_image.jpg"
+	"ctmf_poster.jpg",
+  "causal_poster_image.jpg",
+  "showcase_poster_image.jpg"
   ];
 
 const slideshowContainer = document.querySelector('.slideshow-container');
